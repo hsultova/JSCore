@@ -5,9 +5,10 @@
 function solve(input) {
     let number = input[0];
     let average = calcAverage(number);
+
     while (average <= 5) {
-        average = calcAverage(number);
         number += '9';
+        average = calcAverage(number);
     }
 
     function calcAverage(number) {
@@ -15,15 +16,7 @@ function solve(input) {
         for (let i = 0; i < number.length; i++) {
             sum += Number(number[i]);
         }
-        let count;
-
-        if (number.length == 1) {
-            count = number.length;
-        }
-        else {
-            count = number.length - 1;
-        }
-        let average = sum * 1.0 / count;
+        let average = sum * 1.0 / number.length;
         return average;
     }
 
